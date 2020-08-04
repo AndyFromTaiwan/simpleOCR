@@ -1,5 +1,5 @@
 # simpleOCR
-     This is a simple optical character recognition (OCR) program wrapping 
+This is a simple optical character recognition (OCR) program wrapping 
 pytesseract to convert text embedded in images into text files.
 
 ## [Dependency]

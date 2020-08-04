@@ -132,8 +132,5 @@ dmypy.json
 .DS_Store
 
 # Input and output file sources
-image/*.jpg
-image/*.png
-image/*.jpeg
-image/*.pdf
-text/*.txt
+image/
+text/

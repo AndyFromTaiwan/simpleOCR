@@ -9,12 +9,17 @@ import pytesseract
 
 # Configs
 img_path = 'image'
+GEN_TXT = True
+GEN_PDF = True
 txt_path = 'txt'
 pdf_path = 'pdf'
 language = 'eng'
-GEN_TXT = True
-GEN_PDF = True
-
+"""
+English: 'eng'
+Simplified Chinese: 'chi_sim'
+Traditional Chinese: 'chi_tra'
+Bilingual: "chi_tra+eng"
+"""
 
 def OCR(f):
     (filename, extension) = splitext(f)

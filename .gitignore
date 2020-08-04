@@ -133,4 +133,5 @@ dmypy.json
 
 # Input and output file sources
 image/
-text/
+txt/
+pdf/

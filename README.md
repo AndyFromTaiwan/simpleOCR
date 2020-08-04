@@ -2,7 +2,7 @@
 This is a simple optical character recognition (OCR) program wrapping 
 pytesseract to convert text embedded in images into text files.
 
-## [Dependency]
+## Dependency
 Please follow these dependency installation instructions:
 
 Pillow:
@@ -15,7 +15,7 @@ tesseract:
 https://github.com/tesseract-ocr/tesseract/wiki
 
 
-## [Usage]
+## Usage
 1) Make 3 directories: 'image/', 'txt/', and 'pdf/'
 2) Put all input images under 'image/'
 3) Check config settings in simpleOCR.py then run it

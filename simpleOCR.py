@@ -12,28 +12,32 @@ img_path = 'image'
 txt_path = 'txt'
 pdf_path = 'pdf'
 language = 'eng'
+GEN_TXT = True
 GEN_PDF = True
 
 
-files = listdir(img_path)
+def OCR(f):
+    (filename, extension) = splitext(f)
+    # Skips non-image files
+    if extension == '':
+        return
 
-for f in files:
     print('Starts an OCR on', f)
-    try: 
-        (filename, extension) = splitext(f)
+    try:
         img = Image.open(join(img_path, f))
 
         # Simple image to string
-        content = pytesseract.image_to_string(img, lang=language)
-        txt = join(txt_path, filename+'.txt')
-        with open(txt, 'w') as tf:
-            tf.write(content)
-        print('Successfully wrote the converted text in', txt)
+        if GEN_TXT:
+            content = pytesseract.image_to_string(img, lang=language)
+            txt = join(txt_path, filename+'.txt')
+            with open(txt, 'w') as tf:
+                tf.write(content)
+            print('Successfully wrote the extracted text in', txt)
 
         # Get a searchable PDF
         if GEN_PDF:
-            pdf = join(pdf_path, filename+'.pdf')
             content = pytesseract.image_to_pdf_or_hocr(img, lang=language, extension='pdf')
+            pdf = join(pdf_path, filename+'.pdf')
             with open(pdf, 'w+b') as pf:
                 pf.write(content) # pdf type is bytes by default
             print('Successfully wrote the converted pdf in', pdf)
@@ -42,4 +46,10 @@ for f in files:
         print("Fail!", e.__class__, "occurred:")
         print(e)
     print()
+
+
+files = listdir(img_path)
+
+for f in files:
+    OCR(f)
 

@@ -21,7 +21,7 @@ Traditional Chinese: 'chi_tra'
 Bilingual: "chi_tra+eng"
 """
 
-def OCR(f):
+def run_ocr(f):
     (filename, extension) = splitext(f)
     # Skips non-image files
     if extension == '':
@@ -56,5 +56,5 @@ def OCR(f):
 files = listdir(img_path)
 
 for f in files:
-    OCR(f)
+    run_ocr(f)
 
